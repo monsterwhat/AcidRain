@@ -1,0 +1,18 @@
+name: AcidRain
+version: '${version}'
+description: Simulates acid rain in Minecraft
+author: Alvaro Padilla Rossi
+main: com.playdeca.acidrain.AcidRainPlugin
+api-version: '1.20'
+commands:
+  enableacidrain:
+    description: Enable the Acid Rain plugin
+  disableacidrain:
+    description: Disable the Acid Rain plugin
+  startrain:
+    description: Start the acid rain
+  stoprain:
+    description: Stop acid rain around the player
+  setrainduration:
+    description: Set the duration of acid rain (in seconds) default is 60
+    usage: /setrainduration <duration>

@@ -1,0 +1,5 @@
+# Configuration for AcidRainPlugin
+perWorldSettings:
+  world1: true
+  world2: false
+acidRainDamage: 2.0
