@@ -7,16 +7,16 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class StartRainCommand implements CommandExecutor {
+public class StartRain implements CommandExecutor {
 
     private final AcidRainPlugin plugin;
 
-    public StartRainCommand(AcidRainPlugin plugin) {
+    public StartRain(AcidRainPlugin plugin) {
         this.plugin = plugin;
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, String label, String[] args) {
         if (sender instanceof Player player) {
             // Implement code to start acid rain around the player
             // You can use player.getWorld().setStorm(true) for this

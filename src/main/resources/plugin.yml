@@ -7,12 +7,16 @@ api-version: '1.20'
 commands:
   enableacidrain:
     description: Enable the Acid Rain plugin
+    usage: /enableacidrain
   disableacidrain:
     description: Disable the Acid Rain plugin
+    usage: /disableacidrain
   startrain:
     description: Start the acid rain
+    usage: /startrain
   stoprain:
     description: Stop acid rain around the player
+    usage: /stoprain
   setrainduration:
     description: Set the duration of acid rain (in seconds) default is 60
     usage: /setrainduration <duration>

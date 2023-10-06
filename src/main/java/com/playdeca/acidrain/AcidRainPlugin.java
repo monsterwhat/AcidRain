@@ -2,14 +2,9 @@ package com.playdeca.acidrain;
 
 import com.playdeca.acidrain.commands.*;
 import com.playdeca.acidrain.events.RainListener;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 public class AcidRainPlugin extends JavaPlugin implements CommandExecutor {
     private boolean acidRainEnabled = false;
@@ -38,11 +33,11 @@ public class AcidRainPlugin extends JavaPlugin implements CommandExecutor {
     }
 
     public void registerCommands(){
-        registerCommand("enableacidrain", new EnableAcidRainCommand(this));
-        registerCommand("disableacidrain", new DisableAcidRainCommand(this));
-        registerCommand("startrain", new StartRainCommand(this));
-        registerCommand("stoprain", new StopRainCommand(this));
-        registerCommand("setrainduration", new SetRainDurationCommand(this));
+        registerCommand("enableacidrain", new EnableAcidRain(this));
+        registerCommand("disableacidrain", new DisableAcidRain(this));
+        registerCommand("startrain", new StartRain(this));
+        registerCommand("stoprain", new StopRain(this));
+        registerCommand("setrainduration", new SetRainDuration(this));
     }
 
     public boolean isAcidRainEnabled() {
@@ -62,7 +57,13 @@ public class AcidRainPlugin extends JavaPlugin implements CommandExecutor {
     }
 
     private void registerCommand(String commandName, CommandExecutor executor) {
-        getCommand(commandName).setExecutor(executor);
+        PluginCommand command = getCommand(commandName);
+        if (command != null) {
+            command.setExecutor(executor);
+        } else {
+            getLogger().warning("Failed to register command: " + commandName);
+        }
     }
+
 
 }
