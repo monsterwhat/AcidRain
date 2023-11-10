@@ -1,8 +1,8 @@
-name: AcidRain
-version: '${version}'
+name: CustomRain
+version: 1.0
 description: Simulates acid rain in Minecraft
-author: Alvaro Padilla Rossi
-main: com.playdeca.acidrain.AcidRainPlugin
+author: MonsterWhat
+main: com.playdeca.customrain.CustomRainPlugin
 api-version: '1.20'
 commands:
   enableacidrain:

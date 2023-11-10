@@ -1,30 +1,33 @@
-package com.playdeca.acidrain.commands;
+package com.playdeca.customrain.commands;
 
-import com.playdeca.acidrain.AcidRainPlugin;
+import com.playdeca.customrain.CustomRainPlugin;
+import com.playdeca.customrain.services.MessageService;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 import org.jetbrains.annotations.NotNull;
 
 public class StartRain implements CommandExecutor {
-
-    private final AcidRainPlugin plugin;
-
-    public StartRain(AcidRainPlugin plugin) {
-        this.plugin = plugin;
+    MessageService msg = new MessageService();
+    public StartRain() {
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, String label, String[] args) {
         if (sender instanceof Player player) {
-            // Implement code to start acid rain around the player
-            // You can use player.getWorld().setStorm(true) for this
-            // Consider using a scheduler to stop the rain after a specified duration
-            player.sendMessage("Acid rain has started around you.");
+            startRain(player);
+            player.sendMessage(msg.getRainStartMessage());
         } else {
             sender.sendMessage("Only players can use this command.");
         }
         return true;
     }
+
+    public void startRain(Player player){
+        player.getWorld().setStorm(true);
+    }
+
 }
